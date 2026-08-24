@@ -15,6 +15,7 @@ import org.levimc.launcher.core.content.ServerItem;
 import java.util.List;
 
 public class ServersAdapter extends RecyclerView.Adapter<ServersAdapter.ViewHolder> {
+    private org.levimc.launcher.util.PersonalizationManager pm;
     private List<ServerItem> servers;
     private final OnServerClickListener listener;
 
@@ -52,7 +53,7 @@ public class ServersAdapter extends RecyclerView.Adapter<ServersAdapter.ViewHold
             }
         });
 
-        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext());
+        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
         pm.applyGlassToView(holder.itemView);
         pm.applyAccentToView(holder.itemView, holder.itemView.getContext());
     }

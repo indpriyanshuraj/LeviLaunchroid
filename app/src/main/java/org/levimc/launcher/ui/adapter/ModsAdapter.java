@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ModsAdapter extends RecyclerView.Adapter<ModsAdapter.ModViewHolder> {
+    private org.levimc.launcher.util.PersonalizationManager pm;
 
     private List<Mod> mods = new ArrayList<>();
     private OnModEnableChangeListener onModEnableChangeListener;
@@ -118,7 +119,7 @@ public class ModsAdapter extends RecyclerView.Adapter<ModsAdapter.ModViewHolder>
         });
 
         android.content.Context context = holder.itemView.getContext();
-        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(context);
+        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
         pm.applyGlassToView(holder.itemView);
         pm.applyAccentToView(holder.itemView, context);
     }

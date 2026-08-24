@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorldsAdapter extends RecyclerView.Adapter<WorldsAdapter.WorldViewHolder> {
+    private org.levimc.launcher.util.PersonalizationManager pm;
 
     private List<WorldItem> worlds = new ArrayList<>();
     private OnWorldActionListener onWorldActionListener;
@@ -94,8 +95,11 @@ public class WorldsAdapter extends RecyclerView.Adapter<WorldsAdapter.WorldViewH
             }
         });
 
-        new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()).applyGlassToView(holder.itemView);
-        new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()).applyAccentToView(holder.itemView, holder.itemView.getContext());
+
+        if (pm == null) pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext());
+        pm.applyGlassToView(holder.itemView);
+
+        pm.applyAccentToView(holder.itemView, holder.itemView.getContext());
     }
 
     @Override

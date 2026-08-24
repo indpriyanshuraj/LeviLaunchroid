@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.levimc.launcher.R;
 
 public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ContainerViewHolder> {
+    private org.levimc.launcher.util.PersonalizationManager pm;
 
     public interface ContentBuilder {
         void build(LinearLayout container);
@@ -36,7 +37,7 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.Contai
             builder.build(holder.container);
         }
         android.content.Context ctx = holder.itemView.getContext();
-        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(ctx);
+        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
         pm.applyAccentToView(holder.itemView, ctx);
     }
 

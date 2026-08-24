@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResourcePacksAdapter extends RecyclerView.Adapter<ResourcePacksAdapter.ResourcePackViewHolder> {
+    private org.levimc.launcher.util.PersonalizationManager pm;
 
     private List<ResourcePackItem> resourcePacks = new ArrayList<>();
     private OnResourcePackActionListener onResourcePackActionListener;
@@ -72,7 +73,7 @@ public class ResourcePacksAdapter extends RecyclerView.Adapter<ResourcePacksAdap
             }
         });
 
-        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext());
+        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
         pm.applyGlassToView(holder.itemView);
         pm.applyAccentToView(holder.itemView, holder.itemView.getContext());
     }
