@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Map;
 
 public class WorldPropertiesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private org.levimc.launcher.util.PersonalizationManager pm;
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_PROPERTY = 1;
@@ -75,7 +74,7 @@ public class WorldPropertiesAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         }
 
         android.content.Context context = holder.itemView.getContext();
-        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
+        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(context);
         pm.applyGlassToView(holder.itemView);
         pm.applyAccentToView(holder.itemView, context);
     }

@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 
 public class OptionsPropertiesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private org.levimc.launcher.util.PersonalizationManager pm;
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_PROPERTY = 1;
@@ -72,7 +71,7 @@ public class OptionsPropertiesAdapter extends RecyclerView.Adapter<RecyclerView.
         }
 
         android.content.Context ctx = holder.itemView.getContext();
-        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
+        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(ctx);
         pm.applyGlassToView(holder.itemView);
         pm.applyAccentToView(holder.itemView, ctx);
     }

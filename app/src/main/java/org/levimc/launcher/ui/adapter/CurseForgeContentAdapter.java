@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CurseForgeContentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private org.levimc.launcher.util.PersonalizationManager pm;
 
     private List<Content> contents = new ArrayList<>();
     private final OnContentClickListener listener;
@@ -77,7 +76,7 @@ public class CurseForgeContentAdapter extends RecyclerView.Adapter<RecyclerView.
         }
 
         android.content.Context ctx = holder.itemView.getContext();
-        if (pm == null) { pm = new org.levimc.launcher.util.PersonalizationManager(holder.itemView.getContext()); }
+        org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(ctx);
         pm.applyAccentToView(holder.itemView, ctx);
     }
 
@@ -156,8 +155,7 @@ public class CurseForgeContentAdapter extends RecyclerView.Adapter<RecyclerView.
                 icon.setImageResource(R.drawable.ic_minecraft_cube);
             }
 
-            org.levimc.launcher.util.PersonalizationManager pm = new org.levimc.launcher.util.PersonalizationManager(itemView.getContext());
-            pm.applyGlassToView(itemView);
+            new org.levimc.launcher.util.PersonalizationManager(itemView.getContext()).applyGlassToView(itemView);
 
             itemView.setOnClickListener(v -> listener.onContentClick(content));
         }

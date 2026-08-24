@@ -60,14 +60,14 @@ public class MainViewModel extends ViewModel {
     }
 
     public void setModEnabled(String fileName, boolean enabled) {
-        new Thread(() -> modManager.setModEnabled(fileName, enabled)).start();
+        modsExecutor.execute(() -> modManager.setModEnabled(fileName, enabled));
     }
 
     public void reorderMods(List<Mod> reorderedMods) {
-        new Thread(() -> {
+        modsExecutor.execute(() -> {
             modManager.reorderMods(reorderedMods);
             refreshMods();
-        }).start();
+        });
     }
 
     @Override
