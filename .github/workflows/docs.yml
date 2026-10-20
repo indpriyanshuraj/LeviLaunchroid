@@ -8,9 +8,7 @@ on:
       - .github/workflows/docs.yml
       - docs/**
   # levimc-kit (the LeviMC bar, footer and docs engine) is published by levimc.org and fetched by the package
-  # install: levimc.org triggers this workflow when it publishes a new kit, and the hourly check below catches up.
-  schedule:
-    - cron: '41 * * * *'
+  # install: levimc.org 
   workflow_dispatch:
 
 jobs:
