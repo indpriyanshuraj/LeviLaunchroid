@@ -1,11 +1,11 @@
 # Native Mod Quick Start
 
-This page describes the supported developer path for LeviLaunchroid native
+This page describes the supported developer path for LeviLauncher for Android native
 mods. The public SDK is published in
 [LiteLDev/preloader-android](https://github.com/LiteLDev/preloader-android).
 
 For standalone third-party mods, start from the
-[LeviLauncher Android mod template](https://github.com/QYCottage/levilauncher-android-mod-template).
+[Android mod template](https://github.com/QYCottage/levilauncher-android-mod-template).
 
 Use `examples/full-cpp-mod` as the reference implementation. It includes
 lifecycle registration, typed config, Mod Menu integration, Android packaging,
