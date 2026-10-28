@@ -111,6 +111,9 @@ public class ContentDetailsActivity extends BaseActivity {
             summary.destroy();
             summary = null;
         }
+        if (downloadExecutor != null) {
+            downloadExecutor.shutdownNow();
+        }
         super.onDestroy();
     }
 
@@ -332,7 +335,11 @@ public class ContentDetailsActivity extends BaseActivity {
     private void onBrowserClick() {
         if (content.links != null && content.links.websiteUrl != null) {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(content.links.websiteUrl));
-            startActivity(intent);
+            try {
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, getString(R.string.cannot_open_link, content.links.websiteUrl), Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, R.string.no_website_link_available, Toast.LENGTH_SHORT).show();
         }

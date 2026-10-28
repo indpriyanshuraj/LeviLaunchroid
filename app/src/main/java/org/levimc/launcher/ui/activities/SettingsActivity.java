@@ -770,11 +770,21 @@ public class SettingsActivity extends BaseActivity {
     }
 
     private void setupAboutSection() {
-        findViewById(R.id.settings_btn_github).setOnClickListener(v ->
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LiteLDev/LeviLaunchroid"))));
+        findViewById(R.id.settings_btn_github).setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LiteLDev/LeviLaunchroid")));
+            } catch (Exception e) {
+                Toast.makeText(this, getString(R.string.error_no_browser), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        findViewById(R.id.settings_btn_discord).setOnClickListener(v ->
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/jsnzw4ueAt"))));
+        findViewById(R.id.settings_btn_discord).setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/jsnzw4ueAt")));
+            } catch (Exception e) {
+                Toast.makeText(this, getString(R.string.error_no_browser), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void handleUpdateButtonClick() {
