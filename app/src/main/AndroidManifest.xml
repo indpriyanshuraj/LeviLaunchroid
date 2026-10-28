@@ -49,8 +49,7 @@
         android:theme="@style/Base.Theme.FullScreen"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
-        android:appCategory="game"
-        android:hardwareAccelerated="true">
+        android:appCategory="game">
 
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"
