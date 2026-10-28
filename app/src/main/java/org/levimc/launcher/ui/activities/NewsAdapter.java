@@ -74,7 +74,11 @@ final class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
             String scheme = uri.getScheme();
             if (!("https".equalsIgnoreCase(scheme) || "http".equalsIgnoreCase(scheme))) return;
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            holder.itemView.getContext().startActivity(intent);
+            try {
+                holder.itemView.getContext().startActivity(intent);
+            } catch (Exception e) {
+                android.widget.Toast.makeText(holder.itemView.getContext(), R.string.error_no_browser, android.widget.Toast.LENGTH_SHORT).show();
+            }
         };
         holder.card.setOnClickListener(open);
         holder.action.setOnClickListener(open);
