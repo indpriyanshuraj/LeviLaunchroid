@@ -118,7 +118,9 @@ public class AboutActivity extends BaseActivity {
         btn.setOnClickListener(v -> {
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-            } catch (Exception ignored) {}
+            } catch (Exception e) {
+                android.widget.Toast.makeText(this, getString(R.string.error_no_browser), android.widget.Toast.LENGTH_SHORT).show();
+            }
         });
         DynamicAnim.applyPressScale(btn);
     }
