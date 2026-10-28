@@ -49,9 +49,7 @@
         android:theme="@style/Base.Theme.FullScreen"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
-        android:extractNativeLibs="false"
-        android:isGame="true"
-        android:largeHeap="true"
+        android:appCategory="game"
         android:hardwareAccelerated="true">
 
         <meta-data
